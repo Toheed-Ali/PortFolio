@@ -1,14 +1,73 @@
+import { useEffect, useRef } from "react";
+
 const Hero = () => {
+  const canvasRef = useRef(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
+
+    const characters = "010101010101010101010101010101010101";
+    const fontSize = 16;
+    const columns = Math.ceil(width / fontSize);
+
+    const drops = [];
+    for (let x = 0; x < columns; x++) {
+      drops[x] = Math.random() * -100;
+    }
+
+    const draw = () => {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillRect(0, 0, width, height);
+
+      ctx.fillStyle = "#00fc9d"; // Primary fixed color
+      ctx.font = fontSize + "px monospace";
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = characters.charAt(Math.floor(Math.random() * characters.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    };
+
+    let frameCount = 0;
+    const animate = () => {
+      // Slow down the animation slightly
+      if (frameCount % 2 === 0) {
+        draw();
+      }
+      frameCount++;
+      requestAnimationFrame(animate);
+    };
+
+    const handleResize = () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    };
+
+    window.addEventListener("resize", handleResize);
+    const animationFrame = requestAnimationFrame(animate);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      cancelAnimationFrame(animationFrame);
+    };
+  }, []);
+
   return (
     <section className="h-screen min-h-[600px] flex flex-col justify-center items-start px-8 md:px-24 relative overflow-hidden bg-surface-container-lowest">
-      {/* Matrix Rain Background (Visual Representation) */}
-      <div aria-hidden="true" className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="grid grid-cols-12 h-full w-full">
-          {Array.from({ length: 12 }).map((_, i) => (
-            <div key={i} className="border-x border-primary-fixed/20 h-full"></div>
-          ))}
-        </div>
-      </div>
+      {/* Matrix Rain Background */}
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 opacity-20 pointer-events-none"
+      />
 
       <div className="relative z-10 w-full max-w-4xl">
         <p className="font-mono text-primary-fixed tracking-[0.3em] mb-4 text-xs md:text-sm">
