@@ -69,13 +69,6 @@ const Contact = () => {
             <i className="fa-brands fa-linkedin"></i>
             LINKEDIN
           </a>
-          <a
-            className="font-mono text-xs text-outline hover:text-white transition-colors flex items-center gap-2"
-            href="#"
-          >
-            <i className="fa-brands fa-x-twitter"></i>
-            TWITTER
-          </a>
         </div>
       </div>
     </section>
