@@ -24,12 +24,15 @@ const Hero = () => {
           </div>
         </div>
         <div className="mt-12 flex flex-col sm:flex-row gap-4 md:gap-6 w-full">
-          <button className="px-8 py-4 border-[1.5px] border-primary-fixed text-primary-fixed font-mono text-sm hover:bg-primary-fixed hover:text-on-primary-fixed transition-all duration-300 glow-hover w-full sm:w-auto flex items-center justify-center gap-2">
-            <i className="fa-solid fa-rocket"></i>
-            EXECUTE_PROJECTS
-          </button>
           <a
-            href="/src/assets/Resume.pdf"
+            href="#contact"
+            className="px-8 py-4 border-[1.5px] border-primary-fixed text-primary-fixed font-mono text-sm hover:bg-primary-fixed hover:text-on-primary-fixed transition-all duration-300 glow-hover w-full sm:w-auto flex items-center justify-center gap-2"
+          >
+            <i className="fa-solid fa-comment-dots"></i>
+            CONTACT_ME
+          </a>
+          <a
+            href="/Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-4 bg-surface-container border border-outline-variant text-white font-mono text-sm hover:border-secondary transition-all duration-300 inline-flex items-center justify-center w-full sm:w-auto text-center"
