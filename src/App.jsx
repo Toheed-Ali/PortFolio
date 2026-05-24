@@ -9,6 +9,7 @@ import Certifications from "./components/Certifications";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import CustomCursor from "./components/CustomCursor";
+import ChatBot from "./components/ChatBot";
 
 function App() {
   return (
@@ -26,8 +27,10 @@ function App() {
       </main>
       <Footer />
       <CustomCursor />
+      <ChatBot />
     </div>
   );
 }
 
 export default App;
+

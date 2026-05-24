@@ -70,3 +70,129 @@ body {
   background-color: #a0ffc4;
   color: #004528;
 }
+
+/* ===== Chatbot CRT & Terminal Effects ===== */
+.crt-screen {
+  position: relative;
+  overflow: hidden;
+}
+
+.crt-screen::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(
+      rgba(18, 16, 16, 0) 50%,
+      rgba(0, 0, 0, 0.15) 50%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.03),
+      rgba(0, 255, 0, 0.015),
+      rgba(0, 0, 255, 0.03)
+    );
+  z-index: 10;
+  background-size: 100% 3px, 5px 100%;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.crt-flicker {
+  animation: crt-flicker 0.15s infinite;
+}
+
+@keyframes crt-flicker {
+  0% {
+    opacity: 0.985;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.99;
+  }
+}
+
+@keyframes chatbot-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.chatbot-enter {
+  animation: chatbot-fade-in 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes chatbot-msg-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chatbot-msg-enter {
+  animation: chatbot-msg-in 0.25s ease-out forwards;
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 8px 2px var(--chatbot-glow, rgba(0, 252, 157, 0.4));
+  }
+  50% {
+    box-shadow: 0 0 20px 6px var(--chatbot-glow, rgba(0, 252, 157, 0.6));
+  }
+}
+
+.chatbot-launcher-pulse {
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+@keyframes typing-dot {
+  0%,
+  20% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.typing-dot-1 {
+  animation: typing-dot 1.4s infinite 0s;
+}
+.typing-dot-2 {
+  animation: typing-dot 1.4s infinite 0.2s;
+}
+.typing-dot-3 {
+  animation: typing-dot 1.4s infinite 0.4s;
+}
+
+@keyframes boot-text {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.boot-line {
+  animation: boot-text 0.15s ease-in forwards;
+}
