@@ -755,8 +755,8 @@ KEY PROJECTS:
    GitHub: https://github.com/Toheed-Ali/Tic-Tac-Toe
 
 ACTIVITIES:
-- Google Developer Groups — Committee Member (2024-2025), coordinated 3 hackathons and bootcamps with 600+ participants
-- GYM Management System — Core Member & Head of Events (2025-Present)
+- GDG (Google Developer Groups) — Committee Member (2024-2025), coordinated 3 hackathons and bootcamps with 600+ participants
+- GYM (Green Youth Movement) — Core Member & Head of Events (2025-Present)
 
 EDUCATION:
 - BS Computer Science at ITU (2024-Present)
