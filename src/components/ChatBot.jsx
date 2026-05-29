@@ -764,9 +764,9 @@ EDUCATION:
 - Matriculation at Qazi Grammar School (2008-2022)
 
 CERTIFICATIONS:
-- Code Rush Participation (Google Developer Group)
-- MOS Certification (Microsoft Office Specialist)
-- FSCS - XR Hackathon 3.0 (Forman Computer Science Club)
+- Code Rush Participation (Google Developer Group), Participated in a C++ DSA coding competition held at Information Technology University Lahore in 2025.
+- MOS Certification (Microsoft Office Specialist), Certified as a Microsoft Office Specialist.
+- FSCS - XR Hackathon 3.0 (Forman Computer Science Club), Participated in a C++ DSA questions from HackerRank Website competition held at Forman Christian College Lahore in 2026.
 
 CONTACT & LINKS:
 - Email: University Email: bscs24119@itu.edu.pk, Personal Email: toheedali3.14159@gmail.com
