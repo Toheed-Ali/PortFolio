@@ -29,6 +29,13 @@ const certifications = [
 
 const Certifications = () => {
   const [selected, setSelected] = useState(null);
+  const [loadedImages, setLoadedImages] = useState({});
+  const [loadedLogos, setLoadedLogos] = useState({});
+
+  const markImageLoaded = (index) =>
+    setLoadedImages((prev) => ({ ...prev, [index]: true }));
+  const markLogoLoaded = (index) =>
+    setLoadedLogos((prev) => ({ ...prev, [index]: true }));
 
   const close = useCallback(() => setSelected(null), []);
 
@@ -77,16 +84,29 @@ const Certifications = () => {
                 onClick={() => setSelected(index)}
               >
                 {/* Top Left Circular Logo Badge */}
-                <div className="absolute -top-4 -left-4 w-16 h-16 bg-black rounded-full border-2 border-outline flex items-center justify-center shadow-2xl group-hover:border-primary transition-all duration-500 z-20 p-2">
+                <div className="absolute -top-4 -left-4 w-16 h-16 bg-black rounded-full border-2 border-outline flex items-center justify-center shadow-2xl group-hover:border-primary transition-all duration-500 z-20 p-2 overflow-hidden">
+                  {/* logo skeleton */}
+                  {!loadedLogos[index] && (
+                    <div className="absolute inset-0 rounded-full skeleton-shimmer" />
+                  )}
                   <img
                     src={cert.logoImg}
                     alt={cert.issuer}
-                    className="w-full h-full object-contain"
+                    loading="eager"
+                    onLoad={() => markLogoLoaded(index)}
+                    className={`w-full h-full object-contain transition-opacity duration-500 ${
+                      loadedLogos[index] ? "opacity-100" : "opacity-0"
+                    }`}
                   />
                 </div>
 
                 {/* Card */}
                 <div className="relative aspect-[16/12] bg-surface-container rounded-[28px] overflow-hidden border border-outline-variant/30 shadow-2xl group-hover:shadow-primary/20 group-hover:border-primary/40 transition-all duration-500">
+                  {/* Skeleton shimmer shown until image loads */}
+                  {!loadedImages[index] && (
+                    <div className="absolute inset-0 skeleton-shimmer z-10" />
+                  )}
+
                   {/* Zoom hint overlay */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
                     <div className="bg-black/60 backdrop-blur-sm rounded-full px-4 py-2 flex items-center gap-2 text-white text-sm font-mono">
@@ -99,7 +119,11 @@ const Certifications = () => {
 
                   <img
                     src={cert.image}
-                    className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 opacity-60 group-hover:opacity-100 group-hover:scale-105"
+                    loading="lazy"
+                    onLoad={() => markImageLoaded(index)}
+                    className={`absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 opacity-60 group-hover:opacity-100 group-hover:scale-105 ${
+                      loadedImages[index] ? "" : "invisible"
+                    }`}
                     alt={cert.title}
                   />
 

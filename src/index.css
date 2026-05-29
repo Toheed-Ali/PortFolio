@@ -2,6 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Icon font display: hide until ready (no broken box flash) ── */
+@font-face {
+  font-display: block;
+}
+
+/* Override font-display for ALL @font-face rules loaded by JS (FA + devicon) */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Skeleton shimmer for image placeholders ── */
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    #1a1a1a 25%,
+    #2a2a2a 50%,
+    #1a1a1a 75%
+  );
+  background-size: 400px 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+
 html {
   scroll-behavior: smooth;
 }

@@ -86,14 +86,14 @@ class SynthEngine {
     } catch { /* ignore */ }
   }
 
-  blip()    { this.play(800 + Math.random() * 400, 0.04, "square", 0.05); }
-  send()    { this.play(1200, 0.06, "sine", 0.08); setTimeout(() => this.play(1600, 0.08, "sine", 0.06), 70); }
+  blip() { this.play(800 + Math.random() * 400, 0.04, "square", 0.05); }
+  send() { this.play(1200, 0.06, "sine", 0.08); setTimeout(() => this.play(1600, 0.08, "sine", 0.06), 70); }
   receive() { this.play(600, 0.05, "triangle", 0.06); }
-  error()   { this.play(200, 0.2, "sawtooth", 0.1); }
-  open()    { [0,60,120].forEach((d,i) => setTimeout(() => this.play(400+i*200,0.08,"sine",0.06),d)); }
-  close()   { [0,50,100].forEach((d,i) => setTimeout(() => this.play(1000-i*200,0.06,"sine",0.05),d)); }
-  boot()    { [0,80,160,240,360].forEach((d,i) => setTimeout(() => this.play(300+i*100,0.04,"square",0.04),d)); }
-  keyClick(){ this.play(1800 + Math.random() * 600, 0.02, "square", 0.02); }
+  error() { this.play(200, 0.2, "sawtooth", 0.1); }
+  open() { [0, 60, 120].forEach((d, i) => setTimeout(() => this.play(400 + i * 200, 0.08, "sine", 0.06), d)); }
+  close() { [0, 50, 100].forEach((d, i) => setTimeout(() => this.play(1000 - i * 200, 0.06, "sine", 0.05), d)); }
+  boot() { [0, 80, 160, 240, 360].forEach((d, i) => setTimeout(() => this.play(300 + i * 100, 0.04, "square", 0.04), d)); }
+  keyClick() { this.play(1800 + Math.random() * 600, 0.02, "square", 0.02); }
 }
 
 const synth = new SynthEngine();
@@ -302,8 +302,8 @@ const renderCodeBlock = (code, lang, theme, key) => (
 // Handles nested \frac, \sqrt, \left \right, multi-char exponents, etc.
 
 // Superscript Unicode map for common chars
-const SUP_MAP = { "0":"⁰","1":"¹","2":"²","3":"³","4":"⁴","5":"⁵","6":"⁶","7":"⁷","8":"⁸","9":"⁹","+":"⁺","-":"⁻","=":"⁼","(":"⁽",")":"⁾","n":"ⁿ","i":"ⁱ","a":"ᵃ","b":"ᵇ","c":"ᶜ","d":"ᵈ","e":"ᵉ","f":"ᶠ","g":"ᵍ","h":"ʰ","j":"ʲ","k":"ᵏ","l":"ˡ","m":"ᵐ","o":"ᵒ","p":"ᵖ","r":"ʳ","s":"ˢ","t":"ᵗ","u":"ᵘ","v":"ᵛ","w":"ʷ","x":"ˣ","y":"ʸ","z":"ᶻ" };
-const SUB_MAP = { "0":"₀","1":"₁","2":"₂","3":"₃","4":"₄","5":"₅","6":"₆","7":"₇","8":"₈","9":"₉","+":"₊","-":"₋","=":"₌","(":"₍",")":"₎","a":"ₐ","e":"ₑ","i":"ᵢ","j":"ⱼ","n":"ₙ","o":"ₒ","r":"ᵣ","s":"ₛ","u":"ᵤ","v":"ᵥ","x":"ₓ" };
+const SUP_MAP = { "0": "⁰", "1": "¹", "2": "²", "3": "³", "4": "⁴", "5": "⁵", "6": "⁶", "7": "⁷", "8": "⁸", "9": "⁹", "+": "⁺", "-": "⁻", "=": "⁼", "(": "⁽", ")": "⁾", "n": "ⁿ", "i": "ⁱ", "a": "ᵃ", "b": "ᵇ", "c": "ᶜ", "d": "ᵈ", "e": "ᵉ", "f": "ᶠ", "g": "ᵍ", "h": "ʰ", "j": "ʲ", "k": "ᵏ", "l": "ˡ", "m": "ᵐ", "o": "ᵒ", "p": "ᵖ", "r": "ʳ", "s": "ˢ", "t": "ᵗ", "u": "ᵘ", "v": "ᵛ", "w": "ʷ", "x": "ˣ", "y": "ʸ", "z": "ᶻ" };
+const SUB_MAP = { "0": "₀", "1": "₁", "2": "₂", "3": "₃", "4": "₄", "5": "₅", "6": "₆", "7": "₇", "8": "₈", "9": "₉", "+": "₊", "-": "₋", "=": "₌", "(": "₍", ")": "₎", "a": "ₐ", "e": "ₑ", "i": "ᵢ", "j": "ⱼ", "n": "ₙ", "o": "ₒ", "r": "ᵣ", "s": "ₛ", "u": "ᵤ", "v": "ᵥ", "x": "ₓ" };
 
 const toScript = (str, map) => {
   return str.split("").map(c => map[c] || c).join("");
@@ -339,14 +339,14 @@ const latexToUnicode = (eq) => {
 
   // Greek letters
   const greek = {
-    "\\alpha":"α","\\beta":"β","\\gamma":"γ","\\Gamma":"Γ",
-    "\\delta":"δ","\\Delta":"Δ","\\epsilon":"ε","\\varepsilon":"ε",
-    "\\zeta":"ζ","\\eta":"η","\\theta":"θ","\\Theta":"Θ",
-    "\\iota":"ι","\\kappa":"κ","\\lambda":"λ","\\Lambda":"Λ",
-    "\\mu":"μ","\\nu":"ν","\\xi":"ξ","\\Xi":"Ξ","\\pi":"π","\\Pi":"Π",
-    "\\rho":"ρ","\\sigma":"σ","\\Sigma":"Σ","\\tau":"τ","\\upsilon":"υ",
-    "\\phi":"φ","\\Phi":"Φ","\\varphi":"φ","\\chi":"χ","\\psi":"ψ","\\Psi":"Ψ",
-    "\\omega":"ω","\\Omega":"Ω",
+    "\\alpha": "α", "\\beta": "β", "\\gamma": "γ", "\\Gamma": "Γ",
+    "\\delta": "δ", "\\Delta": "Δ", "\\epsilon": "ε", "\\varepsilon": "ε",
+    "\\zeta": "ζ", "\\eta": "η", "\\theta": "θ", "\\Theta": "Θ",
+    "\\iota": "ι", "\\kappa": "κ", "\\lambda": "λ", "\\Lambda": "Λ",
+    "\\mu": "μ", "\\nu": "ν", "\\xi": "ξ", "\\Xi": "Ξ", "\\pi": "π", "\\Pi": "Π",
+    "\\rho": "ρ", "\\sigma": "σ", "\\Sigma": "Σ", "\\tau": "τ", "\\upsilon": "υ",
+    "\\phi": "φ", "\\Phi": "Φ", "\\varphi": "φ", "\\chi": "χ", "\\psi": "ψ", "\\Psi": "Ψ",
+    "\\omega": "ω", "\\Omega": "Ω",
   };
   for (const [cmd, sym] of Object.entries(greek)) {
     s = s.replaceAll(cmd, sym);
@@ -354,15 +354,15 @@ const latexToUnicode = (eq) => {
 
   // Operators & symbols
   const ops = {
-    "\\times":"×","\\cdot":"·","\\div":"÷","\\pm":"±","\\mp":"∓",
-    "\\leq":"≤","\\geq":"≥","\\neq":"≠","\\approx":"≈","\\equiv":"≡",
-    "\\sim":"∼","\\propto":"∝","\\infty":"∞","\\partial":"∂","\\nabla":"∇",
-    "\\forall":"∀","\\exists":"∃","\\in":"∈","\\notin":"∉",
-    "\\subset":"⊂","\\supset":"⊃","\\cup":"∪","\\cap":"∩",
-    "\\rightarrow":"→","\\leftarrow":"←","\\Rightarrow":"⇒","\\Leftarrow":"⇐",
-    "\\leftrightarrow":"↔","\\to":"→","\\gets":"←",
-    "\\cdots":"⋯","\\ldots":"…","\\vdots":"⋮","\\ddots":"⋱",
-    "\\|":"‖","\\langle":"⟨","\\rangle":"⟩",
+    "\\times": "×", "\\cdot": "·", "\\div": "÷", "\\pm": "±", "\\mp": "∓",
+    "\\leq": "≤", "\\geq": "≥", "\\neq": "≠", "\\approx": "≈", "\\equiv": "≡",
+    "\\sim": "∼", "\\propto": "∝", "\\infty": "∞", "\\partial": "∂", "\\nabla": "∇",
+    "\\forall": "∀", "\\exists": "∃", "\\in": "∈", "\\notin": "∉",
+    "\\subset": "⊂", "\\supset": "⊃", "\\cup": "∪", "\\cap": "∩",
+    "\\rightarrow": "→", "\\leftarrow": "←", "\\Rightarrow": "⇒", "\\Leftarrow": "⇐",
+    "\\leftrightarrow": "↔", "\\to": "→", "\\gets": "←",
+    "\\cdots": "⋯", "\\ldots": "…", "\\vdots": "⋮", "\\ddots": "⋱",
+    "\\|": "‖", "\\langle": "⟨", "\\rangle": "⟩",
   };
   for (const [cmd, sym] of Object.entries(ops)) {
     s = s.replaceAll(cmd, sym);
@@ -521,7 +521,7 @@ const formatMessage = (content, theme) => {
 
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i];
-      const raw  = line.trim();
+      const raw = line.trim();
 
       // ── Table rows ─────────────────────────────────────
       if (raw.startsWith("|") && raw.endsWith("|")) {
@@ -766,6 +766,7 @@ EDUCATION:
 CERTIFICATIONS:
 - Code Rush Participation (Google Developer Group)
 - MOS Certification (Microsoft Office Specialist)
+- FSCS - XR Hackathon 3.0 (Forman Computer Science Club)
 
 CONTACT & LINKS:
 - Email: University Email: bscs24119@itu.edu.pk, Personal Email: toheedali3.14159@gmail.com
