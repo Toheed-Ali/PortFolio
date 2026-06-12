@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import heroBackground from "../assets/Hero Section Background.png";
-import myPic from "../assets/My Pic.png";
+import heroBackground from "../assets/hero-bg.webp";
+import myPic from "../assets/my-pic.webp";
 import avatar1 from "../assets/Chess.png";
 import avatar2 from "../assets/File Explorer.jpg";
 
