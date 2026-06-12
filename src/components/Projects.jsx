@@ -1,9 +1,9 @@
-import CMS from "../assets/CMS.png";
+import CMS from "../assets/CMS.webp";
 import Reversi from "../assets/Reversi.gif";
-import Chess from "../assets/Chess.png";
-import FileExplorer from "../assets/File Explorer.jpg";
-import VisionGo from "../assets/VisionGo.png";
-import TicTacToe from "../assets/tic-tac-toe.png";
+import Chess from "../assets/Chess.webp";
+import FileExplorer from "../assets/File Explorer.webp";
+import VisionGo from "../assets/VisionGo.webp";
+import TicTacToe from "../assets/tic-tac-toe.webp";
 const projects = [
   {
     title: "VisionGo",
@@ -71,6 +71,7 @@ const ProjectCard = ({ project }) => {
       <img
         src={project.image}
         alt={project.title}
+        loading="lazy"
         className="absolute inset-0 w-full h-full object-cover"
       />
 

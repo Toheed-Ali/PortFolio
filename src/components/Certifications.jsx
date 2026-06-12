@@ -1,10 +1,10 @@
 import { useState, useEffect, useCallback } from "react";
-import CodeRush from "../assets/CodeRush.png";
-import MOS from "../assets/MOS.png";
-import XRHackathon from "../assets/XR-Hackathon.png";
-import GDGLogo from "../assets/GDG.png";
-import MicrosoftLogo from "../assets/Microsoft.png";
-import FCSCLogo from "../assets/FCSC.png";
+import CodeRush from "../assets/CodeRush.webp";
+import MOS from "../assets/MOS.webp";
+import XRHackathon from "../assets/XR-Hackathon.webp";
+import GDGLogo from "../assets/GDG.webp";
+import MicrosoftLogo from "../assets/Microsoft.webp";
+import FCSCLogo from "../assets/FCSC.webp";
 
 const certifications = [
   {
@@ -183,7 +183,7 @@ const Certifications = () => {
                 {/* Download button */}
                 <a
                   href={certifications[selected].image}
-                  download={`${certifications[selected].title}.png`}
+                  download={`${certifications[selected].title}.webp`}
                   className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors duration-200"
                   aria-label="Download"
                   title="Download"
