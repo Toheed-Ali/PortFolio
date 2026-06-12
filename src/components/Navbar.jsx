@@ -5,6 +5,12 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
+    // Load Varela Round as fallback for Arial Rounded MT Bold
+    const fontLink = document.createElement("link");
+    fontLink.rel = "stylesheet";
+    fontLink.href = "https://fonts.googleapis.com/css2?family=Varela+Round&display=swap";
+    document.head.appendChild(fontLink);
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 24);
     };
@@ -14,6 +20,7 @@ const Navbar = () => {
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      document.head.removeChild(fontLink);
     };
   }, []);
 

@@ -1,17 +1,15 @@
-import React, { Suspense, lazy } from "react";
 import Navbar from "./components/Navbar";
 import SideNav from "./components/SideNav";
 import Hero from "./components/Hero";
+import About from "./components/About";
+import Skills from "./components/Skills";
+import Projects from "./components/Projects";
+import Education from "./components/Education";
+import Certifications from "./components/Certifications";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 import CustomCursor from "./components/CustomCursor";
-
-const About = lazy(() => import("./components/About"));
-const Skills = lazy(() => import("./components/Skills"));
-const Projects = lazy(() => import("./components/Projects"));
-const Education = lazy(() => import("./components/Education"));
-const Certifications = lazy(() => import("./components/Certifications"));
-const Contact = lazy(() => import("./components/Contact"));
-const Footer = lazy(() => import("./components/Footer"));
-const ChatBot = lazy(() => import("./components/ChatBot"));
+import ChatBot from "./components/ChatBot";
 
 function App() {
   return (
@@ -20,22 +18,19 @@ function App() {
       <SideNav />
       <main>
         <Hero />
-        <Suspense fallback={<div className="h-24 flex items-center justify-center text-white/50">Loading section...</div>}>
-          <About />
-          <Skills />
-          <Projects />
-          <Education />
-          <Certifications />
-          <Contact />
-        </Suspense>
+        <About />
+        <Skills />
+        <Projects />
+        <Education />
+        <Certifications />
+        <Contact />
       </main>
-      <Suspense fallback={null}>
-        <Footer />
-        <ChatBot />
-      </Suspense>
+      <Footer />
       <CustomCursor />
+      <ChatBot />
     </div>
   );
 }
 
 export default App;
+

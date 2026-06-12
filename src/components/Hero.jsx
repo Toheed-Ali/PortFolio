@@ -1,11 +1,17 @@
-
-import heroBackground from "../assets/hero-bg-raw.svg";
+import { useEffect } from "react";
+import heroBackground from "../assets/hero-bg.webp";
 import myPic from "../assets/my-pic.webp";
-import avatar1 from "../assets/Chess.webp";
-import avatar2 from "../assets/File Explorer.webp";
+import avatar1 from "../assets/Chess.png";
+import avatar2 from "../assets/File Explorer.jpg";
 
 const Hero = () => {
-
+  useEffect(() => {
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400&display=swap";
+    document.head.appendChild(link);
+    return () => document.head.removeChild(link);
+  }, []);
   return (
     <section
       id="hero"
