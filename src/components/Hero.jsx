@@ -1,5 +1,5 @@
 
-import heroBackground from "../assets/hero-bg.webp";
+import heroBackground from "../assets/hero-bg-raw.svg";
 import myPic from "../assets/my-pic.webp";
 import avatar1 from "../assets/Chess.webp";
 import avatar2 from "../assets/File Explorer.webp";
