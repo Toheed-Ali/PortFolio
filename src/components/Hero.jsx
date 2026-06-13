@@ -24,29 +24,19 @@ const Hero = () => {
       }}
     >
       {/* Dark overlay for depth */}
-      <div className="absolute inset-0 bg-black/20 z-0" />
+      <div className="absolute inset-0 bg-black/40 lg:bg-black/20 z-0" />
 
       {/* Person image — centered, full body visible */}
       <div className="absolute inset-0 flex justify-center items-end z-10 pointer-events-none">
         <img
           src={myPic}
           alt="Toheed Ali"
-          style={{
-            height: "100%",
-            width: "auto",
-            maxWidth: "70%",
-            objectFit: "contain",
-            objectPosition: "bottom",
-            filter: "drop-shadow(0 0 80px rgba(0,0,0,0.8))",
-          }}
+          className="h-full w-auto max-w-[95%] lg:max-w-[70%] object-contain object-bottom drop-shadow-[0_0_80px_rgba(0,0,0,0.8)]"
         />
       </div>
 
-      {/* Mid-left: project count badge — vertically centered, below sidebar */}
-      <div
-        className="absolute z-20 flex items-center gap-3"
-        style={{ top: "42%", left: "8rem" }}
-      >
+      {/* 10+ projects badge */}
+      <div className="absolute z-20 flex items-center gap-3 top-28 left-6 lg:top-[42%] lg:left-[8rem]">
         {/* 3 overlapping circles */}
         <div className="flex items-center" style={{ marginRight: "4px" }}>
           <div
@@ -101,89 +91,87 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Right-center: descriptor paragraph — vertically centered */}
-      <div
-        className="absolute z-20"
-        style={{ top: "40%", right: "15%", maxWidth: "250px", textAlign: "left" }}
-      >
-        <p
-          className="leading-relaxed"
-          style={{ color: "rgba(255, 255, 255, 0.65)", fontSize: "0.8rem", lineHeight: "1.7" }}
+      {/* Mobile container / Desktop contents */}
+      <div className="absolute z-20 bottom-12 left-6 right-6 flex flex-col gap-5 items-start lg:contents">
+        
+        {/* Resume button */}
+        <a
+          href="/Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="static lg:absolute lg:top-[33%] lg:right-[24.5%] lg:left-auto lg:bottom-auto group"
         >
-          Full-Stack & Systems Developer | AI/ML Enthusiast | Open-Source Builder | 3.11 CGPA at ITU Lahore
-        </p>
-      </div>
+          <div
+            className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/30 backdrop-blur-md transition-all duration-300 group-hover:border-white/20 group-hover:scale-105 group-hover:shadow-[0_0_30px_rgba(255,255,255,0.1)]"
+            style={{ background: "rgba(255,255,255,0.08)" }}
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+              <line x1="16" y1="13" x2="8" y2="13" />
+              <line x1="16" y1="17" x2="8" y2="17" />
+              <polyline points="10 9 9 9 8 9" />
+            </svg>
+            <span
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                fontWeight: 400,
+                fontSize: "0.75rem",
+                color: "rgba(255,255,255,0.9)",
+                letterSpacing: "0.05em",
+                textTransform: "uppercase",
+              }}
+            >
+              Resume
+            </span>
+            <svg
+              className="transition-transform duration-300 group-hover:translate-x-1"
+              width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+            >
+              <path d="M7 17L17 7M17 7H7M17 7v10" />
+            </svg>
+          </div>
+        </a>
 
-      {/* Bottom-left: main headline */}
-      <div
-        className="absolute z-20"
-        style={{ bottom: "12%", left: "9.5%" }}
-      >
-        <p
-          style={{
-            fontFamily: "'Inter', sans-serif",
-            fontStyle: "normal",
-            fontWeight: 300,
-            fontSize: "clamp(1rem, 2vw, 1.4rem)",
-            color: "rgba(255,255,255,0.75)",
-            marginBottom: "0.25rem",
-          }}
-        >
-          Full-Stack App and Web Developer
-        </p>
-        <h1
-          style={{
-            fontFamily: "'Inter', sans-serif",
-            fontWeight: 400,
-            fontSize: "clamp(3.5rem, 9vw, 8rem)",
-            color: "#fce4e4",
-            lineHeight: 1,
-            letterSpacing: "-0.02em",
-          }}
-        >
-          Toheed Ali
-        </h1>
-      </div>
+        {/* Descriptor paragraph */}
+        <div className="static lg:absolute lg:top-[40%] lg:right-[15%] lg:left-auto lg:bottom-auto max-w-[95%] lg:max-w-[250px] text-left">
+          <p
+            className="leading-relaxed"
+            style={{ color: "rgba(255, 255, 255, 0.65)", fontSize: "0.8rem", lineHeight: "1.7" }}
+          >
+            Full-Stack & Systems Developer | AI/ML Enthusiast | Open-Source Builder | 3.11 CGPA at ITU Lahore
+          </p>
+        </div>
 
-      {/* Right-center: Resume button — above descriptor */}
-      <a
-        href="/Resume.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="absolute z-20 group"
-        style={{ top: "33%", right: "24.5%" }}
-      >
-        <div
-          className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/30 backdrop-blur-md transition-all duration-300 group-hover:border-white/20 group-hover:scale-105 group-hover:shadow-[0_0_30px_rgba(255,255,255,0.1)]"
-          style={{ background: "rgba(255,255,255,0.08)" }}
-        >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-            <polyline points="14 2 14 8 20 8" />
-            <line x1="16" y1="13" x2="8" y2="13" />
-            <line x1="16" y1="17" x2="8" y2="17" />
-            <polyline points="10 9 9 9 8 9" />
-          </svg>
-          <span
+        {/* Main headline */}
+        <div className="static lg:absolute lg:bottom-[12%] lg:left-[9.5%] lg:top-auto lg:right-auto flex flex-col lg:block">
+          <p
+            style={{
+              fontFamily: "'Inter', sans-serif",
+              fontStyle: "normal",
+              fontWeight: 300,
+              fontSize: "clamp(0.9rem, 2vw, 1.4rem)",
+              color: "rgba(255,255,255,0.75)",
+              marginBottom: "0.25rem",
+            }}
+          >
+            Full-Stack App and Web Developer
+          </p>
+          <h1
             style={{
               fontFamily: "'Inter', sans-serif",
               fontWeight: 400,
-              fontSize: "0.75rem",
-              color: "rgba(255,255,255,0.9)",
-              letterSpacing: "0.05em",
-              textTransform: "uppercase",
+              fontSize: "clamp(2.5rem, 9vw, 8rem)",
+              color: "#fce4e4",
+              lineHeight: 1,
+              letterSpacing: "-0.02em",
             }}
           >
-            Resume
-          </span>
-          <svg
-            className="transition-transform duration-300 group-hover:translate-x-1"
-            width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-          >
-            <path d="M7 17L17 7M17 7H7M17 7v10" />
-          </svg>
+            Toheed Ali
+          </h1>
         </div>
-      </a>
+
+      </div>
     </section>
   );
 };
