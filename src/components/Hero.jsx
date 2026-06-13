@@ -27,11 +27,16 @@ const Hero = () => {
       <div className="absolute inset-0 bg-black/40 lg:bg-black/20 z-0" />
 
       {/* Person image — centered, full body visible */}
-      <div className="absolute inset-0 flex justify-center items-end z-10 pointer-events-none">
+      <div className="absolute inset-0 flex justify-center items-center lg:items-end z-10 pointer-events-none">
         <img
           src={myPic}
           alt="Toheed Ali"
-          className="h-full w-auto max-w-[95%] lg:max-w-[70%] object-contain object-bottom drop-shadow-[0_0_80px_rgba(0,0,0,0.8)]"
+          className="h-full w-auto max-w-[95%] lg:max-w-[70%] object-contain object-center lg:object-bottom scale-[1.8] lg:scale-100 -translate-y-29 lg:translate-y-0"
+          style={{
+            filter: window.innerWidth < 1024
+              ? "drop-shadow(0 40px 30px rgba(0, 0, 0, 1)) drop-shadow(0 60px 60px rgba(22, 22, 22, 0.7)) drop-shadow(0 80px 100px rgba(0,0,0,0.5))"
+              : "drop-shadow(0 0 80px rgba(0,0,0,0.8))",
+          }}
         />
       </div>
 
@@ -92,8 +97,8 @@ const Hero = () => {
       </div>
 
       {/* Mobile container / Desktop contents */}
-      <div className="absolute z-20 bottom-12 left-6 right-6 flex flex-col gap-5 items-start lg:contents">
-        
+      <div className="absolute z-20 bottom-24 left-6 right-6 flex flex-col gap-5 items-start lg:contents">
+
         {/* Resume button */}
         <a
           href="/Resume.pdf"
@@ -136,8 +141,8 @@ const Hero = () => {
         {/* Descriptor paragraph */}
         <div className="static lg:absolute lg:top-[40%] lg:right-[15%] lg:left-auto lg:bottom-auto max-w-[95%] lg:max-w-[250px] text-left">
           <p
-            className="leading-relaxed"
-            style={{ color: "rgba(255, 255, 255, 0.65)", fontSize: "0.8rem", lineHeight: "1.7" }}
+            className="leading-relaxed text-[0.95rem] lg:text-[0.8rem]"
+            style={{ color: "rgba(255, 255, 255, 0.65)", lineHeight: "1.7" }}
           >
             Full-Stack & Systems Developer | AI/ML Enthusiast | Open-Source Builder | 3.11 CGPA at ITU Lahore
           </p>
@@ -150,7 +155,7 @@ const Hero = () => {
               fontFamily: "'Inter', sans-serif",
               fontStyle: "normal",
               fontWeight: 300,
-              fontSize: "clamp(0.9rem, 2vw, 1.4rem)",
+              fontSize: "clamp(1.1rem, 3vw, 1.4rem)",
               color: "rgba(255,255,255,0.75)",
               marginBottom: "0.25rem",
             }}
@@ -161,7 +166,7 @@ const Hero = () => {
             style={{
               fontFamily: "'Inter', sans-serif",
               fontWeight: 400,
-              fontSize: "clamp(2.5rem, 9vw, 8rem)",
+              fontSize: "clamp(3.3rem, 12vw, 8rem)",
               color: "#fce4e4",
               lineHeight: 1,
               letterSpacing: "-0.02em",
