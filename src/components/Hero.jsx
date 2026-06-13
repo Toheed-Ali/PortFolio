@@ -104,7 +104,7 @@ const Hero = () => {
           href="/Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="static lg:absolute lg:top-[33%] lg:right-[24.5%] lg:left-auto lg:bottom-auto group"
+          className="static lg:absolute lg:top-[33%] lg:right-[24.5%] lg:left-auto lg:bottom-auto lg:z-20 group"
         >
           <div
             className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/30 backdrop-blur-md transition-all duration-300 group-hover:border-white/20 group-hover:scale-105 group-hover:shadow-[0_0_30px_rgba(255,255,255,0.1)]"
@@ -139,7 +139,7 @@ const Hero = () => {
         </a>
 
         {/* Descriptor paragraph */}
-        <div className="static lg:absolute lg:top-[40%] lg:right-[15%] lg:left-auto lg:bottom-auto max-w-[95%] lg:max-w-[250px] text-left">
+        <div className="static lg:absolute lg:top-[40%] lg:right-[15%] lg:left-auto lg:bottom-auto lg:z-20 max-w-[95%] lg:max-w-[250px] text-left">
           <p
             className="leading-relaxed text-[0.95rem] lg:text-[0.8rem]"
             style={{ color: "rgba(255, 255, 255, 0.65)", lineHeight: "1.7" }}
@@ -149,7 +149,7 @@ const Hero = () => {
         </div>
 
         {/* Main headline */}
-        <div className="static lg:absolute lg:bottom-[12%] lg:left-[9.5%] lg:top-auto lg:right-auto flex flex-col lg:block">
+        <div className="static lg:absolute lg:bottom-[12%] lg:left-[9.5%] lg:top-auto lg:right-auto lg:z-20 flex flex-col lg:block">
           <p
             style={{
               fontFamily: "'Inter', sans-serif",
