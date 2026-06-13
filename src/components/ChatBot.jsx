@@ -3,6 +3,19 @@ import { createPortal } from "react-dom";
 
 // ─── Theme Definitions ──────────────────────────────────────────
 const THEMES = {
+  ghost: {
+    name: "Ghost Red",
+    accent: "#ff3b5c",
+    accentDim: "#e0334f",
+    bg: "#0d0608",
+    bgPanel: "#120a0c",
+    bgMsg: "#1a0c10",
+    border: "#2e1018",
+    text: "#ffb0b8",
+    textDim: "#8a3a4a",
+    glow: "rgba(255, 59, 92, 0.5)",
+    icon: "🔴",
+  },
   hacker: {
     name: "Hacker Green",
     accent: "#00fc9d",
@@ -41,19 +54,6 @@ const THEMES = {
     textDim: "#3a6a8a",
     glow: "rgba(0, 212, 255, 0.5)",
     icon: "🔵",
-  },
-  ghost: {
-    name: "Ghost Red",
-    accent: "#ff3b5c",
-    accentDim: "#e0334f",
-    bg: "#0d0608",
-    bgPanel: "#120a0c",
-    bgMsg: "#1a0c10",
-    border: "#2e1018",
-    text: "#ffb0b8",
-    textDim: "#8a3a4a",
-    glow: "rgba(255, 59, 92, 0.5)",
-    icon: "🔴",
   },
 };
 
@@ -877,7 +877,7 @@ const ChatBot = () => {
       apiKey: import.meta.env.VITE_GROQ_API_KEY || "",
       model: "llama-3.3-70b-versatile",
       soundEnabled: true,
-      theme: "hacker",
+      theme: "ghost",
     };
     try {
       const saved = localStorage.getItem("chatbot_settings");
@@ -897,7 +897,7 @@ const ChatBot = () => {
   const startXRef = useRef(0);
   const startWidthRef = useRef(0);
 
-  const theme = THEMES[settings.theme] || THEMES.hacker;
+  const theme = THEMES[settings.theme] || THEMES.ghost;
 
   const handleMouseDown = (e) => {
     setIsResizing(true);
